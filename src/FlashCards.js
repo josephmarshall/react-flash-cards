@@ -6,7 +6,13 @@ import Card from './Card'
 const FlashCards = (props) => (
 
   <div style={cardContainerStyle}>
-    {props.flashCards.map(card => (<Card key={card.id} {...card} updateCard={props.updateCard} editCard={props.editCard} removeCard={props.removeCard} /> ))}
+    {props.flashCards.map(card => (
+      <Card key={card.id} {...card} 
+      updateCard={props.updateCard} 
+      editCard={props.editCard} 
+      removeCard={props.removeCard} 
+      /> 
+    ))}
   </div>
 
 )
@@ -14,8 +20,8 @@ const FlashCards = (props) => (
 const cardContainerStyle ={
   display: "flex",
   flexDirection: "row",
-  border: "solid red 2px",
   flexWrap: "wrap",
+  padding: "10px"
 }
 
 export default FlashCards

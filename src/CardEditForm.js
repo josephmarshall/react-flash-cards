@@ -14,12 +14,13 @@ handleChange = (e) => {
 handleSubmit = (e) => {
   e.preventDefault();
   this.props.updateCard(this.state)
+  this.props.makeCardVisible()  
   this.setState({firstName: "", phone: ""})
 }
 
   render (){
     return(
-      <div style={this.props.cardStyle}>
+      <div style={{...this.props.cardStyle, border: "solid gray 3px"}}>
         <Form onSubmit={this.handleSubmit}>
           <Form.Input
             fluid

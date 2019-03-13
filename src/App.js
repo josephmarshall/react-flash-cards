@@ -8,8 +8,8 @@ class App extends Component {
 
   state = {
     cards: [
-      { id: 1, title: "card 1", description: "this is a good 1 description", edit: true },
-      { id: 2, title: "card 2", description: "this is a 2 description", edit: false },
+      { id: 1, title: "card 1", description: "this is a good 1 description", edit: false },
+      { id: 2, title: "card 2", description: "this is a 2 description", edit: true },
       { id: 3, title: "card 3", description: "this is a good 3 description", edit: false },
       { id: 4, title: "card 4", description: "this is a good 4 description", edit: false },
     ]
@@ -63,12 +63,11 @@ class App extends Component {
     this.setState({ cards: newCards })
   }
 
-
   render() {
     return (
       <div>
-        <h1>React Flash Cards</h1>
-        <Button color="orange" onClick={this.addCard}>+</Button>
+        <h1 style={{marginLeft: "30px"}}>React Flash Cards</h1>
+        <Button style={{marginLeft: "30px", width: "100px"}} color="blue" onClick={this.addCard}>+</Button>
         <FlashCards flashCards={this.state.cards} updateCard={this.updateCard} editCard={this.editCard} removeCard={this.removeCard} />
       </div>
     )
