@@ -3,6 +3,17 @@ import CardEditForm from './CardEditForm'
 import { Button, } from 'semantic-ui-react'
 
 class Card extends React.Component {
+  state = { visibility: "visible" }
+
+  hideCardToggle = () => {
+    if (this.state.visibility === "visible") {
+      this.setState({visibility: "hidden"})
+    } else {
+      this.setState({visibility: "visible"})
+    }
+    console.log(this.state.visibility)
+  }
+
   render(){
     if (this.props.edit === true) {
       return (
@@ -12,7 +23,7 @@ class Card extends React.Component {
 
     }
     return(
-        <div style={cardStyle}>
+        <div style={cardStyle} onClick={this.hideCardToggle}>
           {this.props.title}
           <Button color="grey" style={{float: "right"}} onClick={() => this.props.removeCard(this.props.id)}>x
           </Button>
@@ -20,7 +31,9 @@ class Card extends React.Component {
           onClick={() => this.props.editCard(this.props.id)}>edit
           </Button>
           <hr />
+          <div style={this.state}>
           {this.props.description}
+          </div>
         </div>
     )
   }
